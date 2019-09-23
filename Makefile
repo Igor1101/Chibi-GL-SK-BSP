@@ -187,3 +187,5 @@ include $(RULESPATH)/rules.mk
 #
 # Custom rules
 ##############################################################################
+flash:
+	st-flash write $(BUILDDIR)/$(PROJECT).bin 0x8000000
