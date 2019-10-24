@@ -30,9 +30,10 @@ static THD_FUNCTION(Thread1, arg) {
   chRegSetThreadName("blinker");
   while (true) {
     palSetPad(GPIOD, GPIOD_LED3);       /* Orange.  */
-    chThdSleepMilliseconds(500);
+    //chThdSleepMilliseconds(500);
     palClearPad(GPIOD, GPIOD_LED3);     /* Orange.  */
-    chThdSleepMilliseconds(500);
+    chThdYield();
+    printf("hello");
   }
 }
 
@@ -73,6 +74,6 @@ int main(void) {
       test_execute((BaseSequentialStream *)&SD2, &rt_test_suite);
       test_execute((BaseSequentialStream *)&SD2, &oslib_test_suite);
     }
-    chThdSleepMilliseconds(500);
+    chThdYield();
   }
 }
