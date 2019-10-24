@@ -1,0 +1,22 @@
+diff --git a/os/hal/ports/STM32/STM32F4xx/hal_lld.c b/os/hal/ports/STM32/STM32F4xx/hal_lld.c
+index 96e8056c5..8724d8444 100644
+--- a/os/hal/ports/STM32/STM32F4xx/hal_lld.c
++++ b/os/hal/ports/STM32/STM32F4xx/hal_lld.c
+@@ -201,7 +201,7 @@ void stm32_clock_init(void) {
+ #if STM32_LSI_ENABLED
+   /* LSI activation.*/
+   RCC->CSR |= RCC_CSR_LSION;
+-  while ((RCC->CSR & RCC_CSR_LSIRDY) == 0)
++  //while ((RCC->CSR & RCC_CSR_LSIRDY) == 0)
+     ;                           /* Waits until LSI is stable.               */
+ #endif
+ 
+@@ -213,7 +213,7 @@ void stm32_clock_init(void) {
+ 
+   /* Synchronization with voltage regulator stabilization.*/
+ #if defined(STM32F4XX)
+-  while ((PWR->CSR & PWR_CSR_VOSRDY) == 0)
++  //while ((PWR->CSR & PWR_CSR_VOSRDY) == 0)
+     ;                           /* Waits until power regulator is stable.   */
+ 
+ #if STM32_OVERDRIVE_REQUIRED
